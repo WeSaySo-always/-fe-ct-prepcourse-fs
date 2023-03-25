@@ -225,6 +225,15 @@ function breakStatement(num) {
    // la ejecución y retornar el string: "Se interrumpió la ejecución".
    // [PISTA]: utiliza el statement 'break'.
    // Tu código:
+   let arreglo=[];
+   for(let i=1; i<=10; i++){
+      if(num==i){
+         return    "Se interrumpió la ejecución";
+      }
+      num=num+2;
+      arreglo.push(num);
+   }
+   return arreglo;
 }
 
 function continueStatement(num) {
@@ -235,8 +244,12 @@ function continueStatement(num) {
    // [PISTA]: utiliza el statement 'continue'.
    // Tu código:
    let arreglo=[];
-   for(let i=0; i<10 ;i++){
-      arreglo.push(num+2);
+   for(let i=1; i<=10 ;i++){
+      if(i==5){
+         continue;
+      }
+      num=num+2;
+      arreglo.push(num);
    }
    return arreglo;
 }
