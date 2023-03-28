@@ -71,8 +71,14 @@ function tieneEmail(objetoUsuario) {
    // Verifica si el "objetoUsuario", en su propiedad "email", posee un valor definido.
    // En ese caso retornar true. Caso contrario, false.
    // Tu código:
+   
+   
+   if (objetoUsuario.email == undefined ){
+      return false;
+   }
+   
+   return objetoUsuario.hasOwnProperty('email');
 
-    return objetoUsuario.hasOwnProperty('email');
 }
 
 function tienePropiedad(objeto, propiedad) {
@@ -115,6 +121,14 @@ function pasarUsuarioAPremium(objetoMuchosUsuarios) {
    // Define esta propiedad de todos los usuarios como true.
    // Retornar el arreglo.
    // Tu código:
+   //objetoMuchosUsuarios.usuarios.esPremiun = true;
+
+   for (let i=0; i<objetoMuchosUsuarios.length ; i++){
+      objetoMuchosUsuarios[i].esPremium = true;      
+   }
+   return objetoMuchosUsuarios;
+   
+
 }
 
 function sumarLikesDeUsuario(objetoUsuario) {
@@ -123,6 +137,14 @@ function sumarLikesDeUsuario(objetoUsuario) {
    // Cada post posee una propiedad llamada "likes". Esta propiedad es un número.
    // Debes sumar los likes de todos los post y retornar el resultado.
    // Tu código:
+   let resultado = 0;
+  
+      for (let i=0; i < objetoUsuario.posts.length; i++){
+      resultado = objetoUsuario.posts[i].likes + resultado;
+      }
+
+
+   return resultado;
 }
 
 function agregarMetodoCalculoDescuento(objetoProducto) {
@@ -136,6 +158,13 @@ function agregarMetodoCalculoDescuento(objetoProducto) {
    // PorcentajeDeDescuento ---> 0.2
    // Precio final ---> 8
    // Tu código:
+   let precioFinal= 0;
+      objetoProducto.calcularPrecioDescuento = function (){
+      precioFinal = this.precio - (this.precio * this.porcentajeDeDescuento);
+      return precioFinal;
+   }
+   return objetoProducto;
+
 }
 
 /*⚠️ NO MODIFIQUES NADA DEBAJO DE ESTO ⚠️*/
